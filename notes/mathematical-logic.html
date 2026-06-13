@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Mathematical Logic — Wandering Sailboat</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        packages: { '[+]': ['ams'] }
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #FAFAF8;
+      --ink:    #1A1A1A;
+      --accent: #2D4A7A;
+      --dim:    #A8A8A0;
+      --rule:   #E0E0D8;
+    }
+
+    html { font-size: 18px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      padding: 0 1.5rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    .back {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color 0.15s;
+    }
+    .back:hover { color: var(--accent); }
+    .back::before { content: '← '; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+      margin-bottom: 2.5rem;
+    }
+
+    hr { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+
+    article h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-top: 2.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    article h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-style: italic;
+      margin-top: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    article p { margin-bottom: 0.9em; }
+
+    article .definition,
+    article .theorem {
+      border-left: 2px solid var(--accent);
+      padding: 0.6rem 1rem;
+      margin: 1.4rem 0;
+      background: #F4F4F0;
+      border-radius: 0 3px 3px 0;
+    }
+
+    article .definition strong,
+    article .theorem strong {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.82rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .placeholder-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--dim);
+      border: 1px dashed var(--rule);
+      padding: 1rem 1.2rem;
+      border-radius: 4px;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      html { font-size: 16px; }
+      .page { padding: 2.5rem 0 4rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <a href="../index.html" class="back">All courses</a>
+
+  <h1>Introduction to Mathematical Logic</h1>
+  <p class="meta">Completed &nbsp;·&nbsp; Wandering Sailboat's Math Journey</p>
+
+  <hr />
+
+  <p class="placeholder-note">
+    This is a placeholder page. Replace this file with the HTML exported from your PDF notes
+    by using the uploader on the home page.
+  </p>
+
+  <article>
+
+    <h2>1. Propositional Logic</h2>
+
+    <p>
+      Propositional logic is the study of propositions and the logical connectives that
+      combine them. A <em>proposition</em> is any statement that is either true or false.
+    </p>
+
+    <div class="definition">
+      <strong>Definition</strong>
+      A <em>well-formed formula</em> (wff) is defined inductively: every propositional variable
+      $p, q, r, \ldots$ is a wff; if $\varphi$ and $\psi$ are wffs, then so are
+      $\neg\varphi$, $(\varphi \wedge \psi)$, $(\varphi \vee \psi)$, and $(\varphi \to \psi)$.
+    </div>
+
+    <h2>2. First-Order Logic</h2>
+
+    <p>
+      First-order logic (FOL) extends propositional logic with quantifiers $\forall$ and $\exists$,
+      allowing us to reason about objects in a domain and their properties.
+    </p>
+
+    <div class="theorem">
+      <strong>Theorem — Completeness (Gödel, 1930)</strong>
+      A first-order sentence $\varphi$ is provable in FOL if and only if it is valid, i.e.,
+      $\vdash \varphi \iff \models \varphi$.
+    </div>
+
+    <p>
+      The completeness theorem guarantees that the syntactic and semantic notions of
+      logical consequence coincide — every logical truth can be derived by proof.
+    </p>
+
+    <h2>3. Incompleteness</h2>
+
+    <p>
+      Gödel's incompleteness theorems establish fundamental limits on formal systems
+      powerful enough to express basic arithmetic.
+    </p>
+
+    <div class="theorem">
+      <strong>Theorem — First Incompleteness (Gödel, 1931)</strong>
+      Any consistent formal system $F$ within which a certain amount of elementary arithmetic
+      can be carried out is <em>incomplete</em>: there are statements of the language of $F$
+      which can neither be proved nor disproved in $F$.
+    </div>
+
+  </article>
+
+</div>
+</body>
+</html>
